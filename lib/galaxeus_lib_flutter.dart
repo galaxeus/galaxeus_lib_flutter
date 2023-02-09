@@ -7,7 +7,6 @@ export "extension/extension.dart";
 export "widget/widget.dart";
 
 class MyScrollBehavior extends MaterialScrollBehavior {
-
   @override
   Set<PointerDeviceKind> get dragDevices {
     return {

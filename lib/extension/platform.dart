@@ -1,4 +1,4 @@
-import 'dart:io';
+import "package:universal_io/io.dart";
 
 extension PlatFormExtensionm on Platform {
   bool get isDesktop {
@@ -14,4 +14,4 @@ extension PlatFormExtensionm on Platform {
     }
     return false;
   }
-} 
+}
