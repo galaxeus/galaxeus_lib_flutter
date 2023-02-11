@@ -1,3 +1,4 @@
+import "package:flutter/foundation.dart";
 import "package:universal_io/io.dart";
 
 extension PlatFormExtensionm on Platform {
@@ -6,6 +7,10 @@ extension PlatFormExtensionm on Platform {
       return true;
     }
     return false;
+  }
+
+  bool get isWeb {
+    return kIsWeb;
   }
 
   bool get isMobile {

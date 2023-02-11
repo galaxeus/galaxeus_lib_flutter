@@ -1,6 +1,6 @@
 name: galaxeus_lib_flutter
 description: Library for make flutter more easy and more short with universal extension, utils, and more.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/azkadev
 
 environment:
