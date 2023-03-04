@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import "package:galaxeus_lib_flutter/galaxeus_lib_flutter.dart";
 
 void main() {
   runApp(const MyApp());

@@ -2,7 +2,7 @@ import "package:flutter/foundation.dart";
 import "package:universal_io/io.dart";
 
 extension PlatFormExtensionm on Platform {
-  bool get isDesktop { 
+  bool get isDesktop {
     if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
       return true;
     }
