@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 extension BuildContextExtension<T> on BuildContext {
+  NavigatorState navigator({
+    bool rootNavigator = false,
+  }) {
+    return Navigator.of(this, rootNavigator: rootNavigator);
+  }
+
   MediaQueryData get mediaQueryData {
     return MediaQuery.of(this);
   }
@@ -14,11 +20,13 @@ extension BuildContextExtension<T> on BuildContext {
   }
 
   bool get isTablet {
-    return MediaQuery.of(this).size.width < 1024.0 && MediaQuery.of(this).size.width >= 650.0;
+    return MediaQuery.of(this).size.width < 1024.0 &&
+        MediaQuery.of(this).size.width >= 650.0;
   }
 
   bool get isSmallTablet {
-    return MediaQuery.of(this).size.width < 650.0 && MediaQuery.of(this).size.width > 500.0;
+    return MediaQuery.of(this).size.width < 650.0 &&
+        MediaQuery.of(this).size.width > 500.0;
   }
 
   bool get isDesktop {
@@ -26,7 +34,8 @@ extension BuildContextExtension<T> on BuildContext {
   }
 
   bool get isSmall {
-    return MediaQuery.of(this).size.width < 850.0 && MediaQuery.of(this).size.width >= 560.0;
+    return MediaQuery.of(this).size.width < 850.0 &&
+        MediaQuery.of(this).size.width >= 560.0;
   }
 
   double get width {
@@ -40,8 +49,6 @@ extension BuildContextExtension<T> on BuildContext {
   Size get size {
     return MediaQuery.of(this).size;
   }
-
-
 
   TextStyle? get displayMedium => Theme.of(this).textTheme.displayMedium;
 
@@ -63,16 +70,22 @@ extension BuildContextExtension<T> on BuildContext {
 
   TextStyle? get titleTextStyle => Theme.of(this).appBarTheme.titleTextStyle;
 
-  TextStyle? get bodyExtraSmall => bodySmall?.copyWith(fontSize: 10, height: 1.6, letterSpacing: .5);
+  TextStyle? get bodyExtraSmall =>
+      bodySmall?.copyWith(fontSize: 10, height: 1.6, letterSpacing: .5);
 
   TextStyle? get bodyLarge => Theme.of(this).textTheme.bodyLarge;
 
-  TextStyle? get dividerTextSmall => bodySmall?.copyWith(letterSpacing: 0.5, fontWeight: FontWeight.w700, fontSize: 12.0);
+  TextStyle? get dividerTextSmall => bodySmall?.copyWith(
+      letterSpacing: 0.5, fontWeight: FontWeight.w700, fontSize: 12.0);
 
-  TextStyle? get dividerTextLarge => bodySmall?.copyWith(letterSpacing: 1.5, fontWeight: FontWeight.w700, fontSize: 13.0, height: 1.23);
+  TextStyle? get dividerTextLarge => bodySmall?.copyWith(
+      letterSpacing: 1.5,
+      fontWeight: FontWeight.w700,
+      fontSize: 13.0,
+      height: 1.23);
 
-
-
+  // colors
+  ThemeData get theme => Theme.of(this);
 
   // colors
   Color get primaryColor => Theme.of(this).primaryColor;
@@ -95,16 +108,13 @@ extension BuildContextExtension<T> on BuildContext {
 
   Color get background => Theme.of(this).colorScheme.background;
 
-
-
-
   Future<T?> showBottomSheet(
     Widget child, {
     bool isScrollControlled = true,
     Color? backgroundColor,
     Color? barrierColor,
-  }) {
-    return showModalBottomSheet(
+  }) async {
+    return await showModalBottomSheet<T>(
       context: this,
       barrierColor: barrierColor,
       isScrollControlled: isScrollControlled,
@@ -113,7 +123,12 @@ extension BuildContextExtension<T> on BuildContext {
     );
   }
 
-  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showSnackBar(String message) {
+  ScaffoldMessengerState get scaffoldMessenger {
+    return ScaffoldMessenger.of(this);
+  }
+
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showSnackBar(
+      String message) {
     return ScaffoldMessenger.of(this).showSnackBar(
       SnackBar(
         content: Text(message),
@@ -121,6 +136,4 @@ extension BuildContextExtension<T> on BuildContext {
       ),
     );
   }
-  
-
 }

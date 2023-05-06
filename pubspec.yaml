@@ -1,10 +1,10 @@
 name: galaxeus_lib_flutter
 description: Library for make flutter more easy and more short with universal extension, utils, and more.
-version: 0.0.5
+version: 0.0.7
 homepage: https://github.com/azkadev
 
 environment:
-  sdk: '>=2.19.0 <3.0.0'
+  sdk: '>=2.19.4 <3.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
@@ -17,5 +17,5 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
   
-flutter:
+# flutter:
  
